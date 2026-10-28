@@ -1,0 +1,15 @@
+{
+  "name": "portfolio-ai-chat-backend",
+  "version": "1.0.0",
+  "description": "Secure Local AI Chat Backend for Website and Owner Information",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node ../tests/scenarioTest.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "website_info": {
+    "title": "Muhammad Akmal Faishal (Develean) Portfolio",
+    "purpose": "Website portofolio interaktif yang memamerkan keahlian rekayasa perangkat lunak, karya proyek full-stack, serta eksplorasi antarmuka 3D kreatif.",
+    "tagline": "I write code to rewrite a new world.",
+    "theme": "Dark cosmic cyberpunk dengan visual 3D Three.js dan tipografi Syne & JetBrains Mono.",
+    "sections": [
+      {
+        "id": "hero",
+        "name": "Hero Section",
+        "description": "Bagian pembuka dengan efek pengetikan sinematik dan latar belakang alam semesta 3D yang aktif saat disentuh atau di-scroll."
+      },
+      {
+        "id": "about",
+        "name": "About / Lanyard ID Card",
+        "description": "Menampilkan kartu identitas 3D interaktif yang dapat diayun dan dibalik menggunakan hukum fisika tali Verlet. Bagian belakang kartu memiliki QR Code yang langsung mengarah ke LinkedIn pemilik."
+      },
+      {
+        "id": "skills",
+        "name": "3D Procedural Brain (Skills)",
+        "description": "Visualisasi otak 3D prosedural menggunakan ribuan partikel dan sinapsis saraf yang dapat diputar. Setiap bagian otak mewakili pilar keahlian teknis (Laravel, Nuxt.js, Tailwind, Database, AI Architecture, DevOps)."
+      },
+      {
+        "id": "works",
+        "name": "Selected Works",
+        "description": "Daftar proyek unggulan terverifikasi dengan efek kartu pratinjau melayang (floating hover preview) yang menampilkan cuplikan antarmuka aplikasi."
+      },
+      {
+        "id": "contact",
+        "name": "Contact Section",
+        "description": "Formulir transmisi pesan langsung dan tautan sosial resmi pemilik (Email, GitHub, LinkedIn)."
+      }
+    ],
+    "features": [
+      "Animasi partikel 3D WebGL Three.js performa tinggi",
+      "Lanyard ID card fisika interaktif dengan QR Code dinamis",
+      "Koneksi konstelasi bintang interaktif",
+      "AI Chat Widget terintegrasi di pojok kanan bawah",
+      "Desain responsif untuk desktop dan perangkat seluler"
+    ],
+    "faq": [
+      {
+        "question": "Website ini dibuat untuk apa?",
+        "answer": "Website ini dibuat sebagai portofolio resmi untuk menampilkan keahlian pemrograman full-stack, proyek aplikasi web nyata, dan eksperimen antarmuka 3D interaktif oleh Muhammad Akmal Faishal."
+      },
+      {
+        "question": "Teknologi apa saja yang digunakan untuk membuat website ini?",
+        "answer": "Website ini dibangun menggunakan HTML5, Vanilla CSS modern, JavaScript (ES6+), Three.js untuk grafis 3D WebGL, GSAP untuk animasi halus, dan didukung backend AI lokal dengan Node.js Express."
+      },
+      {
+        "question": "Bagaimana cara menghubungi pemilik website?",
+        "answer": "Anda dapat menghubungi melalui formulir di bagian kontak, mengirim email ke faishalakmal857@gmail.com, atau mengunjungi profil LinkedIn dan GitHub di @Develean."
+      }
+    ]
+  }
+}

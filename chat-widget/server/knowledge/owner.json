@@ -1,0 +1,60 @@
+{
+  "owner_info": {
+    "name": "Muhammad Akmal Faishal",
+    "nickname": "Akmal / Develean",
+    "title": "Full-Stack Web Developer & Software Engineer",
+    "tagline": "Crafting resilient backend architectures and immersive digital interfaces.",
+    "summary": "Muhammad Akmal Faishal (dikenal sebagai Develean) adalah seorang Full-Stack Web Developer yang berfokus pada pengembangan aplikasi web modern, performa tinggi, dan arsitektur backend yang tangguh. Memiliki keahlian kuat dalam ekosistem PHP/Laravel dan JavaScript/Vue/Nuxt.",
+    "core_skills": [
+      {
+        "category": "Backend Engineering",
+        "technologies": ["Laravel 11", "PHP 8+", "Node.js", "Express.js", "RESTful API Design", "Authentication & Middleware"]
+      },
+      {
+        "category": "Frontend Development",
+        "technologies": ["Nuxt.js", "Vue.js", "JavaScript (ES6+)", "Tailwind CSS", "HTML5 & Vanilla CSS", "Three.js / WebGL Basics"]
+      },
+      {
+        "category": "Database & Storage",
+        "technologies": ["MySQL", "SQLite", "PostgreSQL", "Database Schema Optimization", "Indexing"]
+      },
+      {
+        "category": "DevOps & Tools",
+        "technologies": ["Git & GitHub", "Linux (Ubuntu/Debian)", "Vite", "Composer & npm", "Postman", "Vercel"]
+      }
+    ],
+    "verified_projects": [
+      {
+        "name": "Sistem Kasir (Point of Sale)",
+        "slug": "sistem-kasir",
+        "status": "Live & Production",
+        "live_url": "https://sistem-kasir-eight.vercel.app/",
+        "description": "Sistem kasir web modern yang menyediakan pengelolaan katalog barang, pencatatan transaksi kasir real-time, cetak struk penjualan, serta kalkulasi otomatis total belanja dan kembalian."
+      },
+      {
+        "name": "Presensi Digital",
+        "slug": "presensi-digital",
+        "status": "Completed Project",
+        "description": "Aplikasi manajemen kehadiran digital yang memudahkan pencatatan absensi harian, verifikasi kehadiran tepat waktu, dan rekapitulasi data kehadiran otomatis."
+      },
+      {
+        "name": "Spec-First Architect",
+        "slug": "universal-spec-first-architect",
+        "status": "Architecture & Methodology",
+        "description": "Pola perancangan perangkat lunak berbasis spesifikasi formal (Spec-First) untuk menjamin konsistensi API, keamanan data, dan kemudahan pemeliharaan kode jangka panjang."
+      }
+    ],
+    "official_contacts": {
+      "email": "faishalakmal857@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/muhammad-akmal-faishal-46689237b/",
+      "github": "https://github.com/Develean"
+    },
+    "private_or_restricted_info": [
+      "Nomor telepon pribadi / WhatsApp pribadi",
+      "Alamat rumah spesifik / nomor rumah",
+      "Tanggal lahir / umur tepat",
+      "Informasi perbankan / finansial pribadi",
+      "Keluarga atau kehidupan asmara pribadi"
+    ]
+  }
+}

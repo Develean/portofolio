@@ -1,0 +1,10 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Backups and temporary files
+*.bak
+*.tmp
+.DS_Store
