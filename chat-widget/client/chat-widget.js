@@ -6,7 +6,7 @@
   'use strict';
 
   const CONFIG = {
-    apiUrl: 'http://localhost:3001/api/chat',
+    apiUrl: window.location.protocol === 'file:' ? 'http://localhost:3001/api/chat' : '/api/chat',
     storageKey: 'develean_chat_history_v3',
     initialGreeting: 'Halo! Saya asisten virtual portofolio Muhammad Akmal Faishal. Silakan tanyakan keahlian, proyek, atau informasi website ini.',
     suggestions: [

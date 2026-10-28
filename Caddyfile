@@ -1,0 +1,16 @@
+{
+    admin off
+}
+
+:3030 {
+    root * /home/develean/Documents/myProject/portofolio
+    encode gzip zstd
+
+    handle /api/* {
+        reverse_proxy 127.0.0.1:3001
+    }
+
+    handle {
+        file_server
+    }
+}

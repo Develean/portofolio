@@ -34,7 +34,7 @@ function request(options, postData = null) {
 
 async function runScenarioTests() {
   console.log('====================================================');
-  console.log('🚀 MENJALANKAN PENGUJIAN OTOMATIS AI CHAT WIDGET');
+  console.log('MENJALANKAN PENGUJIAN OTOMATIS AI CHAT WIDGET');
   console.log('====================================================\n');
 
   // Start server on port 3009
@@ -47,10 +47,10 @@ async function runScenarioTests() {
     total++;
     if (condition) {
       passed++;
-      console.log(`✅ [PASS] ${scenarioName}`);
+      console.log(`[PASS] ${scenarioName}`);
       if (details) console.log(`   └─ Detail: ${details}`);
     } else {
-      console.error(`❌ [FAIL] ${scenarioName}`);
+      console.error(`[FAIL] ${scenarioName}`);
       if (details) console.error(`   └─ Detail: ${details}`);
     }
   }
