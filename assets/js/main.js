@@ -562,8 +562,8 @@ let aboutShift=0;                                   // small sideways camera shi
  const N=8,SEG=28,HALF=172;                         // rope points, segment length, clip-to-card-centre distance
  const px=new Float32Array(N+1),py=new Float32Array(N+1),qx=new Float32Array(N+1),qy=new Float32Array(N+1); // current/previous positions
  let W=0,H=0,ax=0,vis=false,grab=false,gx=0,gy=0,ox=0,oy=0,acc=0;
- const flipO={a:0},QR_URL='https://www.linkedin.com/in/muhammad-akmal-faishal-46689237b/';let flipped=false;               // QR_URL: where the card's QR code points
- function flip(){flipped=!flipped;gsap.to(flipO,{a:flipped?180:0,duration:reduce?0.01:0.9,ease:'power3.inOut'});}
+ const flipO={a:0},QR_URL='https://www.linkedin.com/in/muhammad-akmal-faishal-46689237b/';let flipped=false,lastFlip=0;
+ function flip(){const now=performance.now();if(now-lastFlip<350)return;lastFlip=now;flipped=!flipped;gsap.to(flipO,{a:flipped?180:0,duration:reduce?0.01:0.85,ease:'power3.inOut'});}
  try{const q=qrcode(0,'M');q.addData(QR_URL);q.make();document.getElementById('qr').innerHTML='<img alt="QR code" src="'+q.createDataURL(5,0)+'">';}catch(_){document.getElementById('qr').textContent=QR_URL;}
  function reset(){for(let i=0;i<=N;i++){px[i]=qx[i]=ax;py[i]=qy[i]=i<N?i*SEG:(N-1)*SEG+HALF;}}
  function size(){const d=Math.min(devicePixelRatio,2);W=box.offsetWidth;H=box.offsetHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);ax=W/2;reset();draw();}
@@ -586,11 +586,15 @@ let aboutShift=0;                                   // small sideways camera shi
  }
  gsap.ticker.add((t,ms)=>{if(!vis)return;acc+=Math.min(ms/1000,0.05);while(acc>1/120){step(1/120);acc-=1/120;}draw();});
  gsap.ticker.add(()=>{const was=vis;vis=Math.abs(ddOf(document.querySelector('.ab')))<0.7;if(vis&&!was&&!reduce)qx[N]=px[N]-14;}); // entrance swing
- card.addEventListener('pointerdown',e=>{const r=box.getBoundingClientRect();grab=true;card._sx=e.clientX;card._sy=e.clientY;card.setPointerCapture(e.pointerId);ox=px[N]-(e.clientX-r.left);oy=py[N]-(e.clientY-r.top);document.body.classList.add('c-grab');});
- card.addEventListener('pointermove',e=>{if(!grab)return;const r=box.getBoundingClientRect();gx=Math.max(0,Math.min(W,e.clientX-r.left+ox));gy=Math.max(60,Math.min(H,e.clientY-r.top+oy));});
+ card.addEventListener('pointerdown',e=>{if(e.button!==undefined&&e.button!==0)return;const r=box.getBoundingClientRect();grab=true;card._sx=e.clientX;card._sy=e.clientY;card._st=performance.now();card._dragged=false;ox=px[N]-(e.clientX-r.left);oy=py[N]-(e.clientY-r.top);gx=px[N];gy=py[N];try{card.setPointerCapture(e.pointerId);}catch(_){}document.body.classList.add('c-grab');});
+ card.addEventListener('pointermove',e=>{if(!grab)return;const mv=Math.hypot(e.clientX-card._sx,e.clientY-card._sy);if(mv>10)card._dragged=true;const r=box.getBoundingClientRect();gx=Math.max(0,Math.min(W,e.clientX-r.left+ox));gy=Math.max(60,Math.min(H,e.clientY-r.top+oy));});
  const rel=()=>{grab=false;document.body.classList.remove('c-grab');};
- card.addEventListener('pointerup',e=>{const mv=Math.hypot(e.clientX-card._sx,e.clientY-card._sy);rel();if(mv<6)flip();});card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();flip();}});card.addEventListener('pointercancel',rel);
- card.addEventListener('pointerenter',()=>document.body.classList.add('c-grab'));card.addEventListener('pointerleave',()=>{if(!grab)document.body.classList.remove('c-grab');});
+ card.addEventListener('pointerup',e=>{const mv=Math.hypot(e.clientX-card._sx,e.clientY-card._sy),dt=performance.now()-(card._st||0);try{card.releasePointerCapture(e.pointerId);}catch(_){}rel();if(mv<20||(!card._dragged&&dt<450))flip();});
+ card.addEventListener('pointercancel',e=>{try{card.releasePointerCapture(e.pointerId);}catch(_){}rel();});
+ card.addEventListener('click',e=>{if(!card._dragged)flip();});
+ card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();flip();}});
+ card.addEventListener('pointerenter',()=>document.body.classList.add('c-grab'));
+ card.addEventListener('pointerleave',()=>{if(!grab)document.body.classList.remove('c-grab');});
  let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(size,200);});size();
  // About text: split into words, then lines (measured by offsetTop), each line masked and revealed on scroll
  const BIO=['I am a *Full-Stack* Developer specializing in *Laravel* and *Nuxt.js* ecosystems.','I build scalable *web* applications, combining *clean* architecture, reliable *APIs*, and intuitive modern interfaces.','Currently open to *collaborations*, engineering projects, and turning ideas into real-world *products*.'];
